@@ -159,14 +159,14 @@ const AnalyticsDashboard = () => {
             <NeonCircularProgress value={teamStats.avgFielding} color="purple" size={100} />
             <p className="text-sm text-muted-foreground mt-2">Avg Fielding</p>
           </div>
-          <div className="neon-card text-center">
-            <div className="font-display text-4xl font-bold text-primary neon-text">
+          <div className="neon-card text-center flex flex-col items-center justify-center">
+            <div className="font-display text-5xl font-bold text-primary neon-text">
               {teamStats.totalRuns.toLocaleString()}
             </div>
             <p className="text-sm text-muted-foreground mt-2">Total Runs</p>
           </div>
-          <div className="neon-card text-center">
-            <div className="font-display text-4xl font-bold text-secondary neon-text-purple">
+          <div className="neon-card text-center flex flex-col items-center justify-center">
+            <div className="font-display text-5xl font-bold text-secondary neon-text-purple">
               {teamStats.totalWickets}
             </div>
             <p className="text-sm text-muted-foreground mt-2">Total Wickets</p>
