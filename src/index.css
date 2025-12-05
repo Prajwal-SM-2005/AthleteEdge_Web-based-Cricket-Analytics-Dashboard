@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 230 50% 3%;
+    --foreground: 200 100% 95%;
+
+    --card: 230 50% 6%;
+    --card-foreground: 200 100% 95%;
+
+    --popover: 230 50% 6%;
+    --popover-foreground: 200 100% 95%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 230 50% 3%;
+
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 200 100% 95%;
+
+    --muted: 230 30% 15%;
+    --muted-foreground: 200 30% 60%;
+
+    --accent: 330 90% 60%;
+    --accent-foreground: 200 100% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 200 100% 95%;
+
+    --border: 230 30% 20%;
+    --input: 230 30% 15%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Neon Colors */
+    --neon-blue: 190 100% 50%;
+    --neon-purple: 270 91% 65%;
+    --neon-pink: 330 90% 60%;
+    --neon-cyan: 185 94% 48%;
+    --neon-lime: 150 100% 50%;
+    --neon-gold: 45 100% 50%;
+    --neon-silver: 200 20% 70%;
+    --neon-bronze: 30 60% 50%;
+
+    /* Glow Effects */
+    --glow-blue: 0 0 20px hsl(190 100% 50% / 0.5), 0 0 40px hsl(190 100% 50% / 0.3), 0 0 60px hsl(190 100% 50% / 0.1);
+    --glow-purple: 0 0 20px hsl(270 91% 65% / 0.5), 0 0 40px hsl(270 91% 65% / 0.3), 0 0 60px hsl(270 91% 65% / 0.1);
+    --glow-pink: 0 0 20px hsl(330 90% 60% / 0.5), 0 0 40px hsl(330 90% 60% / 0.3), 0 0 60px hsl(330 90% 60% / 0.1);
+    --glow-cyan: 0 0 20px hsl(185 94% 48% / 0.5), 0 0 40px hsl(185 94% 48% / 0.3);
+
+    --sidebar-background: 230 50% 5%;
+    --sidebar-foreground: 200 100% 95%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 230 50% 3%;
+    --sidebar-accent: 230 30% 12%;
+    --sidebar-accent-foreground: 200 100% 95%;
+    --sidebar-border: 230 30% 20%;
+    --sidebar-ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: linear-gradient(135deg, hsl(230 50% 3%) 0%, hsl(240 50% 5%) 50%, hsl(230 50% 3%) 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply border border-primary/50;
+    box-shadow: var(--glow-blue);
+  }
+
+  .neon-border-purple {
+    @apply border border-secondary/50;
+    box-shadow: var(--glow-purple);
+  }
+
+  .neon-border-pink {
+    @apply border border-accent/50;
+    box-shadow: var(--glow-pink);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary));
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 10px hsl(var(--secondary)), 0 0 20px hsl(var(--secondary)), 0 0 40px hsl(var(--secondary));
+  }
+
+  .neon-text-pink {
+    text-shadow: 0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent)), 0 0 40px hsl(var(--accent));
+  }
+
+  .neon-card {
+    @apply bg-card/80 backdrop-blur-sm rounded-lg p-6;
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: 
+      inset 0 1px 0 hsl(var(--primary) / 0.1),
+      0 0 20px hsl(var(--primary) / 0.1),
+      0 0 40px hsl(var(--primary) / 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .neon-card:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    box-shadow: 
+      inset 0 1px 0 hsl(var(--primary) / 0.2),
+      0 0 30px hsl(var(--primary) / 0.2),
+      0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  .neon-button {
+    @apply relative overflow-hidden px-6 py-3 font-display font-semibold tracking-wider uppercase;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--primary) / 0.1));
+    border: 1px solid hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .neon-button:hover {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.4), hsl(var(--primary) / 0.2));
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.3);
+    transform: translateY(-2px);
+  }
+
+  .neon-input {
+    @apply bg-muted/50 border border-primary/30 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground;
+    transition: all 0.3s ease;
+  }
+
+  .neon-input:focus {
+    @apply outline-none border-primary/70;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .neon-table {
+    @apply w-full border-collapse;
+  }
+
+  .neon-table th {
+    @apply px-4 py-3 text-left font-display font-semibold uppercase tracking-wider text-primary border-b border-primary/30;
+  }
+
+  .neon-table td {
+    @apply px-4 py-3 border-b border-primary/10;
+  }
+
+  .neon-table tr:hover td {
+    @apply bg-primary/5;
+  }
+
+  .medal-gold {
+    color: hsl(var(--neon-gold));
+    text-shadow: 0 0 10px hsl(var(--neon-gold)), 0 0 20px hsl(var(--neon-gold));
+  }
+
+  .medal-silver {
+    color: hsl(var(--neon-silver));
+    text-shadow: 0 0 10px hsl(var(--neon-silver)), 0 0 20px hsl(var(--neon-silver));
+  }
+
+  .medal-bronze {
+    color: hsl(var(--neon-bronze));
+    text-shadow: 0 0 10px hsl(var(--neon-bronze)), 0 0 20px hsl(var(--neon-bronze));
+  }
+
+  .circular-progress {
+    @apply relative inline-flex items-center justify-center;
+  }
+
+  .circular-progress svg {
+    transform: rotate(-90deg);
+  }
+
+  .circular-progress .track {
+    stroke: hsl(var(--muted));
+  }
+
+  .circular-progress .progress {
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.2);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.4);
+    }
+  }
+
+  @keyframes scan-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  .scan-line::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
+    animation: scan-line 8s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
+  }
+}
